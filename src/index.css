@@ -1,5 +1,6 @@
 :root {
   --primary: #36A66D;
+  --primary-rgb: 54, 166, 109;
   --primary-hover: #2d8b5b;
   --background: #f8fafc;
   --surface: #ffffff;
@@ -21,6 +22,7 @@
     --text-muted: #94a3b8;
     --border: #334155;
     --primary: #4ade80;
+    --primary-rgb: 74, 222, 128;
     --primary-hover: #86efac;
   }
 }

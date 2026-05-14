@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { lookupChar, parseExplanations } from '../lib/db';
 import type { DataEntry } from '../lib/db';
 
@@ -150,7 +151,7 @@ const ParagraphLookup = ({ chineseMode, romanizationMode, t }: Props) => {
         )}
       </div>
 
-      {modalEntry && (
+      {modalEntry && createPortal(
         <div className="modal-overlay" onClick={() => setModalEntry(null)}>
           <div className="modal-content animate-fade-in" onClick={e => e.stopPropagation()}>
             <div className="modal-header">
@@ -174,7 +175,8 @@ const ParagraphLookup = ({ chineseMode, romanizationMode, t }: Props) => {
               ))}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       <style>{`
@@ -195,12 +197,14 @@ const ParagraphLookup = ({ chineseMode, romanizationMode, t }: Props) => {
         }
         .para-char-unit.has-multiple {
           cursor: pointer;
-          background: rgba(37, 99, 235, 0.05);
-          box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.1);
+          background: rgba(var(--primary-rgb, 54, 166, 109), 0.1);
+          box-shadow: 0 0 0 1px rgba(var(--primary-rgb, 54, 166, 109), 0.2);
+          border-radius: 8px;
         }
         .para-char-unit.has-multiple:hover {
-          background: rgba(37, 99, 235, 0.1);
+          background: rgba(var(--primary-rgb, 54, 166, 109), 0.2);
           transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(var(--primary-rgb, 54, 166, 109), 0.15);
         }
         .para-pron {
           font-size: 0.8rem;
@@ -221,7 +225,7 @@ const ParagraphLookup = ({ chineseMode, romanizationMode, t }: Props) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 1000;
+          z-index: 9999; /* Higher than nav-bar (10) and header (10) */
           padding: 1.5rem;
         }
         .modal-content {
