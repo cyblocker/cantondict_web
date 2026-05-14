@@ -18,7 +18,7 @@ interface ParaEntry {
   selectedIndex: number;
 }
 
-const ParagraphLookup: React.FC<Props> = ({ chineseMode, romanizationMode, t }) => {
+const ParagraphLookup = ({ chineseMode, romanizationMode, t }: Props) => {
   const [text, setText] = useState('');
   const [paraEntries, setParaEntries] = useState<ParaEntry[]>([]);
   const [loading, setLoading] = useState(false);

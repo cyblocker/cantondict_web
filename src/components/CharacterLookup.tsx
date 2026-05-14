@@ -12,7 +12,7 @@ interface DisplayEntry extends DataEntry {
   parsedExplanations: string[];
 }
 
-const CharacterLookup: React.FC<Props> = ({ chineseMode, romanizationMode, t }) => {
+const CharacterLookup = ({ chineseMode, romanizationMode, t }: Props) => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<{char: string, entries: DisplayEntry[]}[]>([]);
   const [loading, setLoading] = useState(false);

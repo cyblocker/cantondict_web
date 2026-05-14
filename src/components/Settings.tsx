@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 interface Props {
   chineseMode: number;
   setChineseMode: (mode: number) => void;
@@ -8,11 +6,11 @@ interface Props {
   t: any;
 }
 
-const Settings: React.FC<Props> = ({
+const Settings = ({
   chineseMode, setChineseMode,
   romanizationMode, setRomanizationMode,
   t
-}) => {
+}: Props) => {
   return (
     <div className="animate-fade-in">
       <section className="settings-section card">
