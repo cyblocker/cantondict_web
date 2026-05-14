@@ -11,7 +11,9 @@ export async function getDb(): Promise<Database> {
     locateFile: () => sqlWasm,
   });
 
-  const response = await fetch('/data/CantonDict.db');
+  const isPWA = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone === true;
+  const dbUrl = isPWA ? '/data/CantonDict.db?source=pwa' : '/data/CantonDict.db';
+  const response = await fetch(dbUrl);
   if (!response.ok) {
     throw new Error(`Failed to load database: ${response.status} ${response.statusText}`);
   }
