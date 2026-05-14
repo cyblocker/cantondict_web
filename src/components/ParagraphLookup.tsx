@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { lookupChar, parseExplanations } from '../lib/db';
 import type { DataEntry } from '../lib/db';
 

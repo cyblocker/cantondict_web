@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, BookOpen, Settings as SettingsIcon } from 'lucide-react';
 import { translations } from './lib/i18n';
 import type { Language } from './lib/i18n';
