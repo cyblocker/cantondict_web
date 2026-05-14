@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# 粵語字典 (CantonDict Web)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance Cantonese dictionary web application built with React, TypeScript, and SQLite (via WebAssembly). This project is a migration of the legacy `cantondict_flutter` app into a modern, offline-capable PWA.
 
-Currently, two official plugins are available:
+![Icon](public/icon.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **Multi-Mode Lookup**:
+  - **Character Lookup**: Search for individual characters with detailed pronunciations and definitions.
+  - **Paragraph Lookup**: Smart analysis of entire sentences with a context-aware pronunciation scoring heuristic.
+- **Multiple Romanization Systems**: Support for Yale, Jyutping, Cantonese Pinyin, and Guangzhou schemes.
+- **Bi-directional Chinese Support**: Toggle between Traditional and Simplified Chinese interfaces and data.
+- **Premium UI/UX**:
+  - Glassmorphism design with system-adaptive Dark Mode.
+  - Responsive layout (Mobile-first Bottom Sheet vs. Desktop Centered Modal).
+  - Smooth micro-animations.
+- **Offline-First (PWA)**: Works entirely in the browser using SQLite WASM. No internet required after initial load.
+- **Multilingual UI**: Full support for Traditional Chinese, Simplified Chinese, and English.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: React 19 + Vite
+- **Language**: TypeScript
+- **Database**: [sql.js](https://github.com/sql-js/sql.js) (SQLite WebAssembly)
+- **Icons**: Lucide React
+- **Styling**: Vanilla CSS with modern tokens
+- **Hosting**: Optimized for Cloudflare Pages
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Local Development
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Clone the repository**:
+   ```bash
+   git clone <your-repo-url>
+   cd cantondict_web
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🌐 Deployment (Cloudflare Pages)
+
+1. Connect your GitHub repository to **Cloudflare Pages**.
+2. Use the following **Build Settings**:
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Build Output Directory**: `dist`
+3. Add your custom domain (e.g., `yut.cyblocker.com`) in the Cloudflare Dashboard.
+
+## 📄 License
+
+Created by [cyblocker](https://cyblocker.com). 
+
+This project is built for the Cantonese learning community. The dictionary data is bundled as `public/data/CantonDict.db`.
