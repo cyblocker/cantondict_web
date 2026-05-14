@@ -1,0 +1,17 @@
+{
+  "name": "粵語字典",
+  "short_name": "粵語字典",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#36A66D",
+  "description": "粵語字典 - 粵語拼音查詢工具",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
